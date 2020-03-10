@@ -3,19 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class Square extends React.Component {
+    // set the initial state of value to null
+    constructor(props) {
+      super(props);
+      this.state = {value: null};
+    }
     render() {
+      // States allow compments to remember things ie its state.
       return (
-        <button className="square">
+       // Sets state to X on a button click
+        <button 
+          className="square" 
+          onClick={() => this.setState({value: 'X'})}
+        >
           {/* calls the value property of this object  */}
-          {this.props.value}
+          {this.state.value}
         </button>
       );
     }
   }
-  
+
+  /* Passes in value as jsx a property to square Passing properties from parent to child is how react works!*/
   class Board extends React.Component {
     renderSquare(i) {
-      {/* Passes in value as jsx a property to square  */}
       return <Square value={i} />;
     }
   
