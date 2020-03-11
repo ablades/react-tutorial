@@ -2,22 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-// Controlled component. Board has full control of square
-class Square extends React.Component {
-    render() {
-      // States allow compments to remember things ie its state.
-      return (
-       // Sets state to X on a button click
-        <button 
-          className="square" 
-          onClick={() => this.props.onClick()}
-        >
-          {/* calls the value property of this object  */}
-          {this.props.value}
-        </button>
-      );
-    }
-  }
+// function compoinent simple - for compontents that only have a render and no state
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
 
   /* Passes in value as jsx a property to square Passing properties from parent to child is how react works!*/
   class Board extends React.Component {
