@@ -4,18 +4,13 @@ import './index.css';
 
 // Controlled component. Board has full control of square
 class Square extends React.Component {
-    // set the initial state of value to null
-    constructor(props) {
-      super(props);
-      this.state = {value: null};
-    }
     render() {
       // States allow compments to remember things ie its state.
       return (
        // Sets state to X on a button click
         <button 
           className="square" 
-          onClick={() => this.setState({value: 'X'})}
+          onClick={() => this.props.onClick()}
         >
           {/* calls the value property of this object  */}
           {this.props.value}
@@ -98,6 +93,3 @@ class Square extends React.Component {
     <Game />,
     document.getElementById('root')
   );
-  
-
-  // Stoped at function compontents
